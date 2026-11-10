@@ -21,88 +21,31 @@ body {
   min-height: 100vh;
 }
 
+/* Contenedor principal adaptable a celulares */
 .contenedor-principal {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem; /* Reduccion para  móviles  */
   gap: 1.5rem;
 }
 
-.header-clase {
-  background-color: var(--azul-oscuro);
-  color: var(--crema);
-  padding: 2.5rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  box-shadow: 0 4px 12px rgba(39, 76, 86, 0.2);
+/* Tarjetas y secciones internas flexibles */
+.objetivo-card, .header-clase {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.badge-grado {
-  background-color: var(--naranja);
-  color: #ffffff;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: bold;
-}
-
-.nombre-maestra {
-  font-size: 0.95rem;
-  color: var(--crema);
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-.header-clase h1 {
-  font-size: 1.8rem;
-  line-height: 1.3; /* Esto evita que las letras se encimen */
-  color: #ffffff;
-}
-
-.header-clase p {
-  font-size: 1rem;
-  color: var(--amarillo-suave);
-}
-
-.objetivo-card {
-  background-color: #ffffff;
-  border-left: 6px solid var(--teal);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(39, 76, 86, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.objetivo-card h2 {
-  color: var(--teal);
-  font-size: 1.4rem;
-}
-
-.objetivo-card p {
-  line-height: 1.6;
-  color: var(--azul-oscuro);
-}
-
-.footer-clase {
-  margin-top: auto;
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  color: var(--azul-oscuro);
-  border-top: 2px solid var(--amarillo-suave);
+/* Ajuste  para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedor-principal {
+    padding: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
 }
