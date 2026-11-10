@@ -2,16 +2,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export function ActividadItem() {
-  // Estados para controlar qué elementos del esqueleto HTML están activos
   const [tieneTitulo, setTieneTitulo] = useState(true);
   const [tieneTexto, setTieneTexto] = useState(true);
   const [tieneBoton, setTieneBoton] = useState(true);
 
-  // Estados para que el estudiante escriba su propio contenido
   const [textoTitulo, setTextoTitulo] = useState('Mi primera página web');
   const [textoParrafo, setTextoParrafo] = useState('Hola, estoy aprendiendo cómo funciona HTML y CSS.');
 
-  // Estado para aplicar la "ropa" y diseño (CSS)
   const [estiloAplicado, setEstiloAplicado] = useState(false);
 
   return (
@@ -20,81 +17,96 @@ export function ActividadItem() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
+      style={{
+        backgroundColor: '#ffffff',
+        border: '2px solid #3E8E7E',
+        borderRadius: '12px',
+        padding: '1.5rem',
+        textAlign: 'left'
+      }}
     >
-      <h2>Laboratorio Práctico: Diseña tu Propia Página</h2>
-      <p>
-        Escribe tu propio título y párrafo para armar la estructura (HTML). Luego, presiona el botón de CSS para ponerle estilo, colores a tu diseño.
+      <h2 style={{ color: '#274C56', textAlign: 'center', marginBottom: '0.5rem' }}>
+        Laboratorio Práctico: Diseña tu Propia Página
+      </h2>
+      <p style={{ textAlign: 'center', color: '#4b5563', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+        Escribe tu propio título y párrafo para armar el esqueleto (HTML). Luego descubre cómo el diseño (CSS) le da vida.
       </p>
 
-      <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginTop: '1.5rem', justifyContent: 'space-between' }}>
+      <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'space-between' }}>
         
-        {/* Panel de Control y Edición para el Estudiante */}
+        {/* Panel Izquierdo: Controles */}
         <div style={{ flex: 1, minWidth: '280px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           
-          <h3>1. Escribir el Esqueleto (HTML)</h3>
+          <h3 style={{ color: '#274C56', fontSize: '1.1rem' }}>1. Escribir el Esqueleto (HTML)</h3>
           
-          {/* Input para personalizar el título */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', textAlign: 'left' }}>
-            <label style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#002B5B' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+            <label style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#274C56' }}>
               Texto del Título (&lt;h1&gt;):
             </label>
             <input 
               type="text" 
               value={textoTitulo} 
               onChange={(e) => setTextoTitulo(e.target.value)}
-              style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid #002B5B', fontSize: '0.9rem' }}
+              style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid #274C56', fontSize: '0.9rem' }}
             />
             <button 
               onClick={() => setTieneTitulo(!tieneTitulo)}
-              style={{ marginTop: '0.2rem', padding: '0.4rem', backgroundColor: tieneTitulo ? '#002B5B' : '#d1d5db', color: tieneTitulo ? '#F9F5EB' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600' }}
+              style={{ marginTop: '0.2rem', padding: '0.4rem', backgroundColor: tieneTitulo ? '#274C56' : '#d1d5db', color: tieneTitulo ? '#F6E2B3' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600' }}
             >
               {tieneTitulo ? '✔ Ocultar Título HTML' : '➕ Mostrar Título HTML'}
             </button>
           </div>
 
-          {/* Input para personalizar el párrafo */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', textAlign: 'left' }}>
-            <label style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#002B5B' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+            <label style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#274C56' }}>
               Texto del Párrafo (&lt;p&gt;):
             </label>
             <input 
               type="text" 
               value={textoParrafo} 
               onChange={(e) => setTextoParrafo(e.target.value)}
-              style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid #002B5B', fontSize: '0.9rem' }}
+              style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid #274C56', fontSize: '0.9rem' }}
             />
             <button 
               onClick={() => setTieneTexto(!tieneTexto)}
-              style={{ marginTop: '0.2rem', padding: '0.4rem', backgroundColor: tieneTexto ? '#002B5B' : '#d1d5db', color: tieneTexto ? '#F9F5EB' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600' }}
+              style={{ marginTop: '0.2rem', padding: '0.4rem', backgroundColor: tieneTitulo ? '#274C56' : '#d1d5db', color: tieneTexto ? '#F6E2B3' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600' }}
             >
               {tieneTexto ? '✔ Ocultar Párrafo HTML' : '➕ Mostrar Párrafo HTML'}
             </button>
           </div>
 
-          {/* Botón de control */}
           <button 
             onClick={() => setTieneBoton(!tieneBoton)}
-            style={{ padding: '0.5rem', backgroundColor: tieneBoton ? '#002B5B' : '#d1d5db', color: tieneBoton ? '#F9F5EB' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', textAlign: 'left' }}
+            style={{ padding: '0.5rem', backgroundColor: tieneBoton ? '#274C56' : '#d1d5db', color: tieneBoton ? '#F6E2B3' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', textAlign: 'center' }}
           >
             {tieneBoton ? '✔ Botón Interactivo (<button>)' : '➕ Agregar Botón HTML'}
           </button>
 
-          <h3 style={{ marginTop: '0.2rem' }}>2. Elegir el Estilo (CSS)</h3>
+          {/* Sección teórica del CSS integrada */}
+          <div style={{ backgroundColor: '#fdf8ed', padding: '0.8rem', borderRadius: '8px', borderLeft: '4px solid #D96C2C', marginTop: '0.5rem' }}>
+            <h4 style={{ color: '#D96C2C', fontSize: '0.9rem', marginBottom: '0.3rem' }}>🎨 ¿Qué hace el CSS aquí?</h4>
+            <p style={{ fontSize: '0.8rem', color: '#374151', lineHeight: '1.4', margin: 0 }}>
+              El CSS funciona como la <strong>ropa en el ser humano que le da colores y estilo </strong>. Toma los elementos planos de HTML (el esqueleto) y les añade diseño, tipografías agradables, bordes redondeados y colores institucionales sin modificar la estructura interna.
+            </p>
+          </div>
+
+          <h3 style={{ color: '#274C56', fontSize: '1.1rem', marginTop: '0.2rem' }}>2. Elegir el Estilo (CSS)</h3>
           <button 
             onClick={() => setEstiloAplicado(!estiloAplicado)}
-            style={{ padding: '0.75rem', backgroundColor: '#F07B3F', color: '#F9F5EB', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
+            style={{ padding: '0.75rem', backgroundColor: '#D96C2C', color: '#F6E2B3', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
           >
             {estiloAplicado ? '🎨 Quitar Estilo CSS (Esqueleto Puro)' : '✨ Aplicar Ropa y Colores CSS'}
           </button>
         </div>
 
         {/* Vista Previa Interactiva en Vivo */}
-        <div style={{ flex: 1, minWidth: '280px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ flex: 1, minWidth: '280px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ fontSize: '0.8rem', fontWeight: 'bold', color: '#274C56', marginBottom: '0.5rem' }}>Vista Previa en el Navegador:</span>
           <motion.div 
             animate={{ 
-              backgroundColor: estiloAplicado ? '#F9F5EB' : '#ffffff',
-              borderColor: estiloAplicado ? '#F07B3F' : '#002B5B',
-              boxShadow: estiloAplicado ? '0px 12px 30px rgba(240, 123, 63, 0.25)' : 'none'
+              backgroundColor: estiloAplicado ? '#F6E2B3' : '#ffffff',
+              borderColor: estiloAplicado ? '#D96C2C' : '#274C56',
+              boxShadow: estiloAplicado ? '0px 12px 30px rgba(217, 108, 44, 0.25)' : 'none'
             }}
             transition={{ duration: 0.4 }}
             style={{
@@ -116,7 +128,7 @@ export function ActividadItem() {
                 initial={{ scale: 0.8, opacity: 0 }} 
                 animate={{ scale: 1, opacity: 1 }} 
                 key={textoTitulo}
-                style={{ color: estiloAplicado ? '#002B5B' : '#111', margin: 0, fontSize: '1.2rem', fontWeight: 'bold' }}
+                style={{ color: estiloAplicado ? '#274C56' : '#111', margin: 0, fontSize: '1.2rem', fontWeight: 'bold' }}
               >
                 {textoTitulo}
               </motion.h4>
@@ -127,7 +139,7 @@ export function ActividadItem() {
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 key={textoParrafo}
-                style={{ fontSize: '0.9rem', color: estiloAplicado ? '#4b5563' : '#333', margin: 0 }}
+                style={{ fontSize: '0.9rem', color: estiloAplicado ? '#374151' : '#333', margin: 0 }}
               >
                 {textoParrafo}
               </motion.p>
@@ -139,7 +151,7 @@ export function ActividadItem() {
                 whileTap={{ scale: 0.95 }}
                 style={{
                   padding: '0.5rem 1.2rem',
-                  backgroundColor: estiloAplicado ? '#002B5B' : '#e5e7eb',
+                  backgroundColor: estiloAplicado ? '#274C56' : '#e5e7eb',
                   color: estiloAplicado ? '#F6E2B3' : '#374151',
                   border: 'none',
                   borderRadius: estiloAplicado ? '8px' : '0px',
