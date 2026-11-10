@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { HeaderClase } from './components/HeaderClase';
 import { NavegacionRapida } from './components/NavegacionRapida';
 import { ObjetivoCard } from './components/ObjetivoCard';
-import { MaquetacionCasa } from './components/MaquetacionCasa';
+import  MaquetacionCasa  from './components/MaquetacionCasa';
 import { ActividadItem } from './components/ActividadItem';
-import { EvaluacionForm } from './components/EvaluacionForm';
+import  EvaluacionForm  from './components/EvaluacionForm';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
 function App() {
-  // Controlador de vista que se muestra en pantalla (por defecto inicia en 'objetivo')
+  // Controlador de vista que se muestra en pantalla 
   const [seccionActiva, setSeccionActiva] = useState('objetivo');
 
   return (

@@ -1,143 +1,130 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-export function MaquetacionCasa() {
-  const [seccionSeleccionada, setSeccionSeleccionada] = useState('header');
-
-  const contenidoPartes = {
-    header: {
-      titulo: 'La Fachada y el Rótulo de Entrada (<header>)',
-      texto: 'Así como una casa tiene una fachada principal que da la bienvenida, en una página web el <header> contiene el título principal, el logotipo y la navegación básica.',
-      colorBorde: '#D96C2C'
-    },
-    main: {
-      titulo: 'La Sala Principal y Habitaciones (<main>)',
-      texto: 'Es el corazón de la casa o de la página web. Aquí adentro colocamos todo el contenido importante: textos, imágenes, formularios y las secciones de nuestro laboratorio.',
-      colorBorde: '#274C56'
-    },
-    footer: {
-      titulo: 'Los Cimientos y el Patio Trasero (<footer>)',
-      texto: 'Es la base final y el soporte de abajo. Aquí se colocan los créditos, el autor de la página, enlaces de contacto y derechos de autor.',
-      colorBorde: '#3E8E7E'
-    }
-  };
+export default function MaquetacionCasa() {
+  const [seccionActiva, setSeccionActiva] = useState('header');
 
   return (
-    <motion.section 
-      className="objetivo-card"
-      initial={{ opacity: 0, y: 30 }}
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      style={{
-        backgroundColor: '#ffffff',
-        border: '2px solid #274C56',
-        borderRadius: '12px',
-        padding: '1.5rem',
-        textAlign: 'left'
+      transition={{ duration: 0.4 }}
+      style={{ 
+        backgroundColor: '#ffffff', 
+        color: '#274C56', 
+        padding: '2rem', 
+        borderRadius: '8px', 
+        border: '1px solid #274C56', 
+        maxWidth: '650px', 
+        margin: '0 auto' 
       }}
     >
-      {/* Título actualizado */}
-      <h2 style={{ color: '#274C56', textAlign: 'center', marginBottom: '0.4rem' }}>
-        Estructura de Diseño Web
-      </h2>
-      <p style={{ textAlign: 'center', color: '#4b5563', marginBottom: '1.2rem', fontSize: '0.92rem', lineHeight: '1.4' }}>
-        Para entender el desarrollo web usamos dos grandes ideas: <strong>Construir una casa</strong> (para organizar las etiquetas estructurales) y <strong>Vestir el cuerpo humano</strong> (para separar el esqueleto HTML del diseño CSS).
+      <h3 style={{ textAlign: 'center', color: '#274C56', marginBottom: '1rem' }}>Analogías de Desarrollo Web</h3>
+      
+      <p style={{ textAlign: 'center', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+        Para comprender cómo interactúan <strong>HTML y CSS</strong>, utilizamos dos conceptos claros del mundo real:
       </p>
 
-      {/* Puente conceptual */}
-      <div style={{ backgroundColor: '#fdf8ed', padding: '0.8rem 1rem', borderRadius: '8px', borderLeft: '4px solid #D96C2C', marginBottom: '1.5rem' }}>
-        <p style={{ fontSize: '0.85rem', color: '#374151', margin: 0, lineHeight: '1.4' }}>
-          💡 <strong>Paso 1 (La Casa):</strong> Primero ordenamos los espacios grandes de la página web con etiquetas semánticas. 
-          <br />
-          💡 <strong>Paso 2 (El Cuerpo,la Ropa que le da color y estilo):</strong> Luego, dentro de esos espacios, creamos el contenido (huesos/HTML) y le aplicamos colores (estilo/CSS) en el laboratorio.
+      {/* Analogía 1: HTML la Estructura / Esqueleto */}
+      <div style={{ backgroundColor: '#FFF9F2', borderLeft: '4px solid #D96C2C', padding: '1rem', borderRadius: '6px', marginBottom: '1rem' }}>
+        <p style={{ fontWeight: 'bold', margin: 0, color: '#D96C2C' }}>🦴  1: El Esqueleto Humano y la Casa (HTML)</p>
+        <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', lineHeight: '1.4' }}>
+          Así como el esqueleto da forma al cuerpo o los cimientos sostienen una casa, el código <strong>HTML</strong> proporciona la estructura lógica y los espacios semánticos indispensables de la página web.
         </p>
       </div>
 
-      {/* Subtítulo limpio sin "Explora la Analogía 1" */}
-      <h3 style={{ color: '#274C56', fontSize: '1.05rem', textAlign: 'center', marginBottom: '0.8rem' }}>
-        La Casa en Construcción (Maquetación HTML)
-      </h3>
-      <p style={{ textAlign: 'center', fontSize: '0.85rem', color: '#6b7280', marginBottom: '1rem' }}>
-        Haz clic en cada parte de la casa para ver su función:
+      {/* Analogía 2: CSS como la Ropa / Estética */}
+      <div style={{ backgroundColor: '#F0F7F9', borderLeft: '4px solid #274C56', padding: '1rem', borderRadius: '6px', marginBottom: '1.5rem' }}>
+        <p style={{ fontWeight: 'bold', margin: 0, color: '#274C56' }}>👕 2: La Ropa y la Pintura (CSS)</p>
+        <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', lineHeight: '1.4' }}>
+          La <strong>ropa que vestimos</strong> o la pintura de una casa no cambian la estructura ósea ni las paredes; simplemente aportan color, estilo, tipografías y presentación estética. Eso es exactamente lo que hace el <strong>CSS</strong>.
+        </p>
+      </div>
+
+      <h4 style={{ textAlign: 'center', marginTop: '1.5rem', marginBottom: '1rem' }}>La Casa en Construcción (Maquetación HTML)</h4>
+      <p style={{ textAlign: 'center', fontSize: '0.85rem', color: '#666', marginBottom: '1rem' }}>
+        Haga clic en cada parte de la estructura para ver su función:
       </p>
 
-      {/* Botones de navegación de la casa */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', flexWrap: 'wrap', marginBottom: '1.2rem' }}>
+      {/* Botones Interactivos */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
         <button 
-          onClick={() => setSeccionSeleccionada('header')}
-          style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: seccionSeleccionada === 'header' ? '#D96C2C' : '#274C56',
-            color: '#F6E2B3',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            fontSize: '0.85rem'
+          onClick={() => setSeccionActiva('header')}
+          style={{ 
+            backgroundColor: seccionActiva === 'header' ? '#D96C2C' : '#274C56', 
+            color: '#fff', 
+            border: 'none', 
+            padding: '0.5rem 1rem', 
+            borderRadius: '4px', 
+            cursor: 'pointer', 
+            fontWeight: 'bold' 
           }}
         >
-          🏠 Fachada (&lt;header&gt;)
+          Fachada (&lt;header&gt;)
         </button>
-
         <button 
-          onClick={() => setSeccionSeleccionada('main')}
-          style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: seccionSeleccionada === 'main' ? '#D96C2C' : '#274C56',
-            color: '#F6E2B3',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            fontSize: '0.85rem'
+          onClick={() => setSeccionActiva('main')}
+          style={{ 
+            backgroundColor: seccionActiva === 'main' ? '#D96C2C' : '#274C56', 
+            color: '#fff', 
+            border: 'none', 
+            padding: '0.5rem 1rem', 
+            borderRadius: '4px', 
+            cursor: 'pointer', 
+            fontWeight: 'bold' 
           }}
         >
-          🛋️ Sala Principal (&lt;main&gt;)
+          Sala Principal (&lt;main&gt;)
         </button>
-
         <button 
-          onClick={() => setSeccionSeleccionada('footer')}
-          style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: seccionSeleccionada === 'footer' ? '#D96C2C' : '#274C56',
-            color: '#F6E2B3',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            fontSize: '0.85rem'
+          onClick={() => setSeccionActiva('footer')}
+          style={{ 
+            backgroundColor: seccionActiva === 'footer' ? '#D96C2C' : '#274C56', 
+            color: '#fff', 
+            border: 'none', 
+            padding: '0.5rem 1rem', 
+            borderRadius: '4px', 
+            cursor: 'pointer', 
+            fontWeight: 'bold' 
           }}
         >
-          🧱 Cimientos (&lt;footer&gt;)
+          Cimientos (&lt;footer&gt;)
         </button>
       </div>
 
-      {/* Tarjeta de información interactiva */}
-      <AnimatePresence mode="wait">
-        <motion.div 
-          key={seccionSeleccionada}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
-          style={{
-            backgroundColor: '#f9fafb',
-            borderLeft: `5px solid ${contenidoPartes[seccionSeleccionada].colorBorde}`,
-            borderTop: '1px solid #e5e7eb',
-            borderRight: '1px solid #e5e7eb',
-            borderBottom: '1px solid #e5e7eb',
-            borderRadius: '0 8px 8px 0',
-            padding: '1.2rem'
-          }}
-        >
-          <h4 style={{ color: '#274C56', fontSize: '1rem', marginBottom: '0.4rem' }}>
-            {contenidoPartes[seccionSeleccionada].titulo}
-          </h4>
-          <p style={{ color: '#374151', fontSize: '0.9rem', lineHeight: '1.5', margin: 0 }}>
-            {contenidoPartes[seccionSeleccionada].texto}
-          </p>
-        </motion.div>
-      </AnimatePresence>
-    </motion.section>
+      {/* Detalle interactivo */}
+      <motion.div 
+        key={seccionActiva}
+        initial={{ opacity: 0, y: 5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2 }}
+        style={{ backgroundColor: '#F9F5EB', padding: '1rem', borderRadius: '6px', borderLeft: '4px solid #D96C2C' }}
+      >
+        {seccionActiva === 'header' && (
+          <div>
+            <h4 style={{ margin: '0 0 0.5rem 0', color: '#274C56' }}>La Fachada (&lt;header&gt;)</h4>
+            <p style={{ margin: 0, fontSize: '0.9rem' }}>
+              Es la parte superior que da la bienvenida a la página web, donde se ubican el título, el menú y el logotipo.
+            </p>
+          </div>
+        )}
+        {seccionActiva === 'main' && (
+          <div>
+            <h4 style={{ margin: '0 0 0.5rem 0', color: '#274C56' }}>La Sala Principal (&lt;main&gt;)</h4>
+            <p style={{ margin: 0, fontSize: '0.9rem' }}>
+              Es el espacio central de la página donde se presenta el contenido educativo principal.
+            </p>
+          </div>
+        )}
+        {seccionActiva === 'footer' && (
+          <div>
+            <h4 style={{ margin: '0 0 0.5rem 0', color: '#274C56' }}>Los Cimientos (&lt;footer&gt;)</h4>
+            <p style={{ margin: 0, fontSize: '0.9rem' }}>
+              Ubicado al final de la página web con información sobre el autor, derechos reservados o enlaces secundarios.
+            </p>
+          </div>
+        )}
+      </motion.div>
+    </motion.div>
   );
 }
