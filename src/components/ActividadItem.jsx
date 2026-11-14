@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function ActividadItem() {
-  const [tieneTitulo, setTieneTitulo] = useState(true);
-  const [tieneTexto, setTieneTexto] = useState(true);
-  const [tieneBoton, setTieneBoton] = useState(true);
+  // Estados iniciales en false para que el esqueleto empiece vacío
+  const [tieneTitulo, setTieneTitulo] = useState(false);
+  const [tieneTexto, setTieneTexto] = useState(false);
+  const [tieneBoton, setTieneBoton] = useState(false);
 
   const [textoTitulo, setTextoTitulo] = useState('Mi primera página web');
   const [textoParrafo, setTextoParrafo] = useState('Hola, estoy aprendiendo cómo funciona HTML y CSS.');
@@ -12,7 +13,7 @@ export default function ActividadItem() {
   const [estiloAplicado, setEstiloAplicado] = useState(false);
 
   return (
-    <motion.section 
+    <motion.section
       className="objetivo-card"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
@@ -43,17 +44,27 @@ export default function ActividadItem() {
             <label style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#274C56' }}>
               Texto del Título (&lt;h1&gt;):
             </label>
-            <input 
-              type="text" 
-              value={textoTitulo} 
+            <input
+              type="text"
+              value={textoTitulo}
               onChange={(e) => setTextoTitulo(e.target.value)}
               style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid #274C56', fontSize: '0.9rem' }}
             />
-            <button 
+            <button
               onClick={() => setTieneTitulo(!tieneTitulo)}
-              style={{ marginTop: '0.2rem', padding: '0.4rem', backgroundColor: tieneTitulo ? '#274C56' : '#d1d5db', color: tieneTitulo ? '#F6E2B3' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600' }}
+              style={{
+                marginTop: '0.2rem',
+                padding: '0.4rem',
+                backgroundColor: tieneTitulo ? '#274C56' : '#d1d5db',
+                color: tieneTitulo ? '#fff' : '#374151',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                fontSize: '0.85rem'
+              }}
             >
-              {tieneTitulo ? '✔ Ocultar Título HTML' : '➕ Mostrar Título HTML'}
+              {tieneTitulo ? '✓ Ocultar Título HTML' : '+ Mostrar Título HTML'}
             </button>
           </div>
 
@@ -61,49 +72,78 @@ export default function ActividadItem() {
             <label style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#274C56' }}>
               Texto del Párrafo (&lt;p&gt;):
             </label>
-            <input 
-              type="text" 
-              value={textoParrafo} 
+            <input
+              type="text"
+              value={textoParrafo}
               onChange={(e) => setTextoParrafo(e.target.value)}
               style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid #274C56', fontSize: '0.9rem' }}
             />
-            <button 
+            <button
               onClick={() => setTieneTexto(!tieneTexto)}
-              style={{ marginTop: '0.2rem', padding: '0.4rem', backgroundColor: tieneTitulo ? '#274C56' : '#d1d5db', color: tieneTexto ? '#F6E2B3' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600' }}
+              style={{
+                marginTop: '0.2rem',
+                padding: '0.4rem',
+                backgroundColor: tieneTexto ? '#274C56' : '#d1d5db',
+                color: tieneTexto ? '#fff' : '#374151',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                fontSize: '0.85rem'
+              }}
             >
-              {tieneTexto ? '✔ Ocultar Párrafo HTML' : '➕ Mostrar Párrafo HTML'}
+              {tieneTexto ? '✓ Ocultar Párrafo HTML' : '+ Mostrar Párrafo HTML'}
             </button>
           </div>
 
-          <button 
+          <button
             onClick={() => setTieneBoton(!tieneBoton)}
-            style={{ padding: '0.5rem', backgroundColor: tieneBoton ? '#274C56' : '#d1d5db', color: tieneBoton ? '#F6E2B3' : '#374151', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', textAlign: 'center' }}
+            style={{
+              padding: '0.5rem',
+              backgroundColor: tieneBoton ? '#274C56' : '#d1d5db',
+              color: tieneBoton ? '#fff' : '#374151',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              fontSize: '0.85rem'
+            }}
           >
-            {tieneBoton ? '✔ Botón Interactivo (<button>)' : '➕ Agregar Botón HTML'}
+            {tieneBoton ? '✓ Botón Interactivo (<button>)' : '+ Agregar Botón HTML'}
           </button>
 
           {/* Sección teórica del CSS integrada */}
-          <div style={{ backgroundColor: '#fdf8ed', padding: '0.8rem', borderRadius: '8px', borderLeft: '4px solid #D96C2C', marginTop: '0.5rem' }}>
+          <div style={{ backgroundColor: '#fff8ed', padding: '0.8rem', borderRadius: '8px', borderLeft: '4px solid #D96C2C', marginTop: '0.5rem' }}>
             <h4 style={{ color: '#D96C2C', fontSize: '0.9rem', marginBottom: '0.3rem' }}>🎨 ¿Qué hace el CSS aquí?</h4>
             <p style={{ fontSize: '0.8rem', color: '#374151', lineHeight: '1.4', margin: 0 }}>
-              El CSS funciona como la <strong>ropa en el ser humano que le da colores y estilo </strong>. Toma los elementos planos de HTML (el esqueleto) y les añade diseño, tipografías agradables, bordes redondeados y colores institucionales sin modificar la estructura interna.
+              El CSS funciona como la <strong>ropa en el ser humano que le da colores y estilo</strong>. Toma los elementos planos de HTML y les añade diseño, tipografías agradables, bordes redondeados y colores institucionales.
             </p>
           </div>
 
-          <h3 style={{ color: '#274C56', fontSize: '1.1rem', marginTop: '0.2rem' }}>2. Elegir el Estilo (CSS)</h3>
-          <button 
+          <h3 style={{ color: '#274C56', fontSize: '1.1rem', marginTop: '0.5rem' }}>2. Elegir el Estilo (CSS)</h3>
+          <button
             onClick={() => setEstiloAplicado(!estiloAplicado)}
-            style={{ padding: '0.75rem', backgroundColor: '#D96C2C', color: '#F6E2B3', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
+            style={{
+              padding: '0.75rem',
+              backgroundColor: '#D96C2C',
+              color: '#F6E2B3',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              fontSize: '0.9rem'
+            }}
           >
-            {estiloAplicado ? '🎨 Quitar Estilo CSS (Esqueleto Puro)' : '✨ Aplicar Ropa y Colores CSS'}
+            {estiloAplicado ? '🎨 Quitar Estilo CSS (Esqueleto Puro)' : '✨ Aplicar estilo y Colores CSS'}
           </button>
         </div>
 
         {/* Vista Previa Interactiva en Vivo */}
-        <div style={{ flex: 1, minWidth: '280px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ flex: 1, minWidth: '280px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <span style={{ fontSize: '0.8rem', fontWeight: 'bold', color: '#274C56', marginBottom: '0.5rem' }}>Vista Previa en el Navegador:</span>
-          <motion.div 
-            animate={{ 
+          
+          <motion.div
+            animate={{
               backgroundColor: estiloAplicado ? '#F6E2B3' : '#ffffff',
               borderColor: estiloAplicado ? '#D96C2C' : '#274C56',
               boxShadow: estiloAplicado ? '0px 12px 30px rgba(217, 108, 44, 0.25)' : 'none'
@@ -124,20 +164,20 @@ export default function ActividadItem() {
             }}
           >
             {tieneTitulo && (
-              <motion.h4 
-                initial={{ scale: 0.8, opacity: 0 }} 
-                animate={{ scale: 1, opacity: 1 }} 
+              <motion.h4
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
                 key={textoTitulo}
-                style={{ color: estiloAplicado ? '#274C56' : '#111', margin: 0, fontSize: '1.2rem', fontWeight: 'bold' }}
+                style={{ color: estiloAplicado ? '#274C56' : '#111', margin: 0, fontSize: '1.2rem' }}
               >
                 {textoTitulo}
               </motion.h4>
             )}
 
             {tieneTexto && (
-              <motion.p 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 key={textoParrafo}
                 style={{ fontSize: '0.9rem', color: estiloAplicado ? '#374151' : '#333', margin: 0 }}
               >
@@ -146,7 +186,7 @@ export default function ActividadItem() {
             )}
 
             {tieneBoton && (
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{
@@ -164,7 +204,9 @@ export default function ActividadItem() {
             )}
 
             {!tieneTitulo && !tieneTexto && !tieneBoton && (
-              <p style={{ color: '#9ca3af', fontStyle: 'italic' }}>El esqueleto está vacío. Activa los elementos desde el panel izquierdo.</p>
+              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ color: '#9ca3af', fontStyle: 'italic' }}>
+                El esqueleto está vacío. Activa los elementos desde el panel izquierdo.
+              </motion.p>
             )}
           </motion.div>
         </div>
