@@ -1,9 +1,9 @@
 export function NavegacionRapida({ seccionActiva, setSeccionActiva }) {
   const pestanas = [
-    { id: 'objetivo', label: '🎯 Objetivo' },
-    { id: 'analogia', label: '🏠 Analogía' },
-    { id: 'laboratorio', label: '💻 Laboratorio' },
-    { id: 'evaluacion', label: '🚀 Evaluación' }
+    { id: 'objetivo', label: 'Competencia' },
+    { id: 'analogia', label: ' Clase' },
+    { id: 'laboratorio', label: 'Actividad' },
+    { id: 'evaluacion', label: ' Evaluación' }
   ];
 
   return (
