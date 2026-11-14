@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
-export function ObjetivoCard() {
+export default function ObjetivoCard() {
   return (
-    <motion.section 
+    <motion.section
       className="objetivo-card"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
@@ -29,20 +29,18 @@ export function ObjetivoCard() {
           display: 'inline-block',
           marginBottom: '0.5rem'
         }}>
-          🎯 Competencia
+          Competencia
         </span>
-        <p style={{ color: '#374151', fontSize: '0.95rem', lineHeight: '1.5', margin: 0 }}>
+        <p style={{ color: '#002B5B', fontSize: '0.95rem', lineHeight: '1.5', margin: 0 }}>
           Diferencia la estructura lógica de una página web (HTML) de su diseño visual y presentación estética (CSS) mediante analogías y recursos interactivos.
         </p>
       </div>
-
-      <hr style={{ border: 'none', borderTop: '1px dashed #d1d5db', margin: '1rem 0' }} />
 
       {/* Indicador de Logro */}
       <div>
         <span style={{
           backgroundColor: '#F07B3F',
-          color: '#F9F5EB',
+          color: '#ffffff',
           padding: '0.3rem 1rem',
           borderRadius: '20px',
           fontWeight: 'bold',
@@ -50,10 +48,10 @@ export function ObjetivoCard() {
           display: 'inline-block',
           marginBottom: '0.5rem'
         }}>
-          📋 Indicador de Logro
+          Indicador de Logro
         </span>
-        <p style={{ color: '#374151', fontSize: '0.95rem', lineHeight: '1.5', margin: 0 }}>
-          Construye una estructura web básica utilizando etiquetas HTML y aplica estilos dinámicos interactivos para comprender la separación entre contenido y diseño.
+        <p style={{ color: '#002B5B', fontSize: '0.95rem', lineHeight: '1.5', margin: 0 }}>
+          Construye una estructura web básica utilizando etiquetas HTML y aplicaciones de estilos dinámicos interactivos para comprender la separación entre contenido y diseño.
         </p>
       </div>
     </motion.section>

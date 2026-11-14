@@ -19,25 +19,21 @@ export default function MaquetacionCasa() {
         margin: '0 auto' 
       }}
     >
-      <h3 style={{ textAlign: 'center', color: '#274C56', marginBottom: '1rem' }}>Analogías de Desarrollo Web</h3>
+      <h3 style={{ textAlign: 'center', color: '#274C56', marginBottom: '1rem' }}>¿como interactua html y css dentro de una pagina web?</h3>
       
-      <p style={{ textAlign: 'center', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-        Para comprender cómo interactúan <strong>HTML y CSS</strong>, utilizamos dos conceptos claros del mundo real:
-      </p>
-
       {/* Analogía 1: HTML la Estructura / Esqueleto */}
       <div style={{ backgroundColor: '#FFF9F2', borderLeft: '4px solid #D96C2C', padding: '1rem', borderRadius: '6px', marginBottom: '1rem' }}>
-        <p style={{ fontWeight: 'bold', margin: 0, color: '#D96C2C' }}>🦴  1: El Esqueleto Humano y la Casa (HTML)</p>
+        <p style={{ fontWeight: 'bold', margin: 0, color: '#D96C2C' }}>🦴   El Esqueleto Humano y la Casa (HTML)</p>
         <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', lineHeight: '1.4' }}>
-          Así como el esqueleto da forma al cuerpo o los cimientos sostienen una casa, el código <strong>HTML</strong> proporciona la estructura lógica y los espacios semánticos indispensables de la página web.
+          Así como el esqueleto da forma al cuerpo o los cimientos sostienen una casa,<strong>HTML</strong> es la estructura lógica y los espacios semánticos indispensables de la página web.
         </p>
       </div>
 
       {/* Analogía 2: CSS como la Ropa / Estética */}
       <div style={{ backgroundColor: '#F0F7F9', borderLeft: '4px solid #274C56', padding: '1rem', borderRadius: '6px', marginBottom: '1.5rem' }}>
-        <p style={{ fontWeight: 'bold', margin: 0, color: '#274C56' }}>👕 2: La Ropa y la Pintura (CSS)</p>
+        <p style={{ fontWeight: 'bold', margin: 0, color: '#274C56' }}>👕  La Ropa y la Pintura (CSS)</p>
         <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', lineHeight: '1.4' }}>
-          La <strong>ropa que vestimos</strong> o la pintura de una casa no cambian la estructura ósea ni las paredes; simplemente aportan color, estilo, tipografías y presentación estética. Eso es exactamente lo que hace el <strong>CSS</strong>.
+          La <strong>ropa que vestimos</strong> o la pintura de una casa no cambian la estructura ósea ni las paredes; simplemente aportan color, estilo, tipografías y presentación estética. Eso es exactamente lo que hace <strong>CSS</strong> dentro de una pagina web.
         </p>
       </div>
 

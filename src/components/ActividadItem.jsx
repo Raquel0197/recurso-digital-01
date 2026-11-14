@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-export function ActividadItem() {
+export default function ActividadItem() {
   const [tieneTitulo, setTieneTitulo] = useState(true);
   const [tieneTexto, setTieneTexto] = useState(true);
   const [tieneBoton, setTieneBoton] = useState(true);

@@ -1,30 +1,25 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { HeaderClase } from './components/HeaderClase';
-import { NavegacionRapida } from './components/NavegacionRapida';
-import { ObjetivoCard } from './components/ObjetivoCard';
-import  MaquetacionCasa  from './components/MaquetacionCasa';
-import { ActividadItem } from './components/ActividadItem';
-import  EvaluacionForm  from './components/EvaluacionForm';
+import MaquetacionCasa from './components/MaquetacionCasa';
+import ActividadItem from './components/ActividadItem';
+import EvaluacionForm from './components/EvaluacionForm';
+import ObjetivoCard from './components/ObjetivoCard';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
-function App() {
-  // Controlador de vista que se muestra en pantalla 
+export default function App() {
   const [seccionActiva, setSeccionActiva] = useState('objetivo');
 
   return (
-    <div className="contenedor-principal">
-      {/* Encabezado   */}
-      <HeaderClase />
-
-      {/* Botones de navegación tipo pestañas */}
-      <NavegacionRapida 
+    <div className="contenedor-principal" style={{ paddingBottom: '2rem' }}>
+      {/* Encabezado con los botones integrados */}
+      <HeaderClase 
         seccionActiva={seccionActiva} 
         setSeccionActiva={setSeccionActiva} 
       />
-
-      {/* Contenido Dinámico  */}
-      <main style={{ minHeight: '320px' }}>
+      
+      {/* Contenido Dinámico */}
+      <main style={{ minHeight: '320px', maxWidth: '750px', margin: '0 auto', padding: '0 1rem' }}>
         <AnimatePresence mode="wait">
           {seccionActiva === 'objetivo' && (
             <motion.div
@@ -77,14 +72,12 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer 
+      <footer
         className="footer-clase"
-        style={{ textAlign: 'center', padding: '1rem 0', fontSize: '0.85rem', color: '#274C56' }}
+        style={{ textAlign: 'center', padding: '2rem 0 1rem 0', fontSize: '0.85rem', color: '#274C56' }}
       >
-        <p>Desarrollado para el curso de Programación de Aplicaciones Web • Universidad Rafael Landívar</p>
+        <p>Desarrollado por Raquel Aju • 2026 • Universidad Rafael Landívar</p>
       </footer>
     </div>
   );
 }
-
-export default App;
